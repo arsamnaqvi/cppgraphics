@@ -2,15 +2,15 @@
 #include <fstream>
 #include "ppm.h"
 
-#define DEFAULTDIM  300
-ppmimage::ppmimage()
+ppmimage::ppmimage(bool random)
 {
     this->height = DEFAULTDIM;
     this->width = DEFAULTDIM;
     this->pixels = (rgb *)malloc(DEFAULTDIM * DEFAULTDIM * sizeof(rgb));
+    
     for (int i = 0; i < DEFAULTDIM; i++) {
         for (int j = 0; j < DEFAULTDIM; j++) {
-            this->pixels[(i*DEFAULTDIM)+j] = rgb();
+            this->pixels[(i*DEFAULTDIM)+j] = rgb(random);
         }
     }
 }
@@ -22,7 +22,7 @@ ppmimage::ppmimage(int height, int width)
     this->pixels = (rgb *)malloc(height * width * sizeof(rgb));
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
-            this->pixels[(i*width)+j] = rgb();
+            this->pixels[(i*width)+j] = rgb(false);
         }
     }
 }

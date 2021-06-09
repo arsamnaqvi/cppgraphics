@@ -8,7 +8,7 @@ class rgb {
         uint8_t b;
     
     public:
-        rgb();
+        rgb(bool random);
         rgb(int red, int green, int blue);
         void changeval(int r, int g, int b);
         ~rgb();

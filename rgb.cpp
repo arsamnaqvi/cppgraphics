@@ -1,10 +1,17 @@
+#include <stdlib.h>
 #include "rgb.h"
 
-rgb::rgb()
+rgb::rgb(bool random)
 {
-    r = 255;
-    g = 55;
-    b = 55;
+    if (random) {
+        r = rand() % 255;
+        g = rand() % 255;
+        b = rand() % 255;
+    } else {
+        r = 255;
+        g = 55;
+        b = 55;
+    }
 }
 
 rgb::rgb(int red, int green, int blue): r(red), g(green), b(blue)
